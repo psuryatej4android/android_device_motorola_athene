@@ -265,7 +265,11 @@ PRODUCT_PACKAGES += \
     init.oem.hw.sh \
     init.qcom.power.rc \
     init.qcom.rc \
+    init.lk.sh \
     ueventd.qcom.rc
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/init.lk.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.lk.sh
 
 # Releasetools script
 PRODUCT_COPY_FILES += \
