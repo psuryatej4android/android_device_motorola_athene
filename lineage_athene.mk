@@ -15,7 +15,14 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_base.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_m.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
 # Inherit some common LineageOS stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
@@ -38,7 +45,9 @@ PRODUCT_MANUFACTURER := Motorola
 BOARD_VENDOR := motorola
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-	PRIVATE_BUILD_DESC="athene_f-user 8.1.0 OPJ28.111 12 release-keys" \
+	PRIVATE_BUILD_DESC="athene_f-user 8.1.0 OPJ28.111 22 release-keys" \
+	PRODUCT_NAME="athene" \
+	TARGET_DEVICE="athene"
 
 PRODUCT_ENFORCE_RRO_TARGETS := \
     framework-res
