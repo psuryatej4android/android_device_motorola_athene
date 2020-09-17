@@ -106,8 +106,7 @@ PRODUCT_COPY_FILES +=  \
 # Camera
 PRODUCT_PACKAGES += \
     libbson \
-    libshims_camera \
-    Snap
+    libshims_camera
 
 # Disable camera Treble path
 PRODUCT_PROPERTY_OVERRIDES += \
