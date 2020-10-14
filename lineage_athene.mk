@@ -46,8 +46,7 @@ BOARD_VENDOR := motorola
 PRODUCT_BUILD_PROP_OVERRIDES += \
 	PRIVATE_BUILD_DESC="athene_f-user 8.1.0 OPJ28.111 22 release-keys" \
 	PRODUCT_NAME="athene" \
-	TARGET_DEVICE="athene" \
-	DEVICE_MAINTAINERS="fuyukihidekii"
+	TARGET_DEVICE="athene"
 
 PRODUCT_ENFORCE_RRO_TARGETS := \
     framework-res
