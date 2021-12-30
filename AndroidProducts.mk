@@ -16,3 +16,8 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_athene.mk
+
+COMMON_LUNCH_CHOICES := \
+    lineage_athene-eng \
+    lineage_athene-user \
+    lineage_athene-userdebug
