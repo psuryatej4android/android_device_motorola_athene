@@ -260,5 +260,8 @@ WIFI_DRIVER_FW_PATH_AP := "ap"
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
-# Adding this for custom drbtool
+# Adding this for custom dtbtool
 BUILD_BROKEN_USES_BUILD_HOST_EXECUTABLE := true
+
+# to be removed later
+BUILD_BROKEN_DUP_RULES := true
