@@ -34,7 +34,7 @@
 #include "property_service.h"
 #include "vendor_init.h"
 
-using android::init::property_set;
+using android::base::SetProperty;
 
 static void num_sims(void);
 static void target_ram(void);
@@ -71,14 +71,14 @@ void vendor_load_properties()
         return;
 
     device_boot = android::base::GetProperty("ro.boot.device", "");
-    property_set("ro.hw.device", device_boot.c_str());
+    SetProperty("ro.hw.device", device_boot.c_str());
 
     sku = android::base::GetProperty("ro.boot.hardware.sku", "");
 
     carrier = android::base::GetProperty("ro.boot.carrier", "");
 
     radio = android::base::GetProperty("ro.boot.radio", "");
-    property_set("ro.hw.radio", radio.c_str());
+    SetProperty("ro.hw.radio", radio.c_str());
 
     /* Common for all models */
     property_override("ro.build.product", "athene");
@@ -89,34 +89,34 @@ void vendor_load_properties()
         /* Moto G4 (XT162x) */
         property_override_dual("ro.product.device", "ro.product.vendor.device", "athene");
         property_override_dual("ro.product.model", "ro.product.vendor.model", "Moto G4");
-        property_set("ro.telephony.default_network", "10");
+        SetProperty("ro.telephony.default_network", "10");
     } else {
         /* Moto G4 Plus (XT164x) */
         property_override_dual("ro.product.device", "ro.product.vendor.device", "athene_f");
         property_override_dual("ro.product.model", "ro.product.vendor.model", "Moto G4 Plus");
-        property_set("ro.telephony.default_network", "10,0");
+        SetProperty("ro.telephony.default_network", "10,0");
     }
 
    if (sku == "XT1625" || sku == "XT1644") {
-       property_set("net.tethering.noprovisioning", "true");
-        property_set("persist.radio.is_wps_enabled", "true");
-        property_set("ro.radio.imei.sv", "4");
-        property_set("tether_dun_required", "0");
+       SetProperty("net.tethering.noprovisioning", "true");
+        SetProperty("persist.radio.is_wps_enabled", "true");
+        SetProperty("ro.radio.imei.sv", "4");
+        SetProperty("tether_dun_required", "0");
    }
 
     if (sku == "XT1621" || sku == "XT1622" || sku == "XT1640" || sku == "XT1642" || sku == "XT1643") {
         if (radio == "India") {
-            property_set("ro.radio.imei.sv", "9");
-            property_set("persist.radio.is_wps_enabled", "true");
+            SetProperty("ro.radio.imei.sv", "9");
+            SetProperty("persist.radio.is_wps_enabled", "true");
         } else {
-            property_set("ro.radio.imei.sv", "3");
+            SetProperty("ro.radio.imei.sv", "3");
         }
     }
 
     if (sku == "XT1626" || sku == "XT1641") {
-        property_set("ro.radio.imei.sv", "2");
-        property_set("persist.radio.is_wps_enabled", "true");
-        property_set("persist.radio.pb.max.match", "10");
+        SetProperty("ro.radio.imei.sv", "2");
+        SetProperty("persist.radio.is_wps_enabled", "true");
+        SetProperty("persist.radio.pb.max.match", "10");
     }
 }
 
@@ -127,19 +127,19 @@ static void target_ram(void) {
     ram = android::base::GetProperty("ro.boot.ram", "");
 
     if (ram == "2GB") {
-        property_set("dalvik.vm.heapstartsize", "16m");
-        property_set("dalvik.vm.heapgrowthlimit", "192m");
-        property_set("dalvik.vm.heapsize", "512m");
-        property_set("dalvik.vm.heaptargetutilization", "0.75");
-        property_set("dalvik.vm.heapminfree", "2m");
-        property_set("dalvik.vm.heapmaxfree", "8m");
+        SetProperty("dalvik.vm.heapstartsize", "16m");
+        SetProperty("dalvik.vm.heapgrowthlimit", "192m");
+        SetProperty("dalvik.vm.heapsize", "512m");
+        SetProperty("dalvik.vm.heaptargetutilization", "0.75");
+        SetProperty("dalvik.vm.heapminfree", "2m");
+        SetProperty("dalvik.vm.heapmaxfree", "8m");
     } else {
-        property_set("dalvik.vm.heapstartsize", "8m");
-        property_set("dalvik.vm.heapgrowthlimit", "288m");
-        property_set("dalvik.vm.heapsize", "768m");
-        property_set("dalvik.vm.heaptargetutilization", "0.75");
-        property_set("dalvik.vm.heapminfree", "512k");
-        property_set("dalvik.vm.heapmaxfree", "8m");
+        SetProperty("dalvik.vm.heapstartsize", "8m");
+        SetProperty("dalvik.vm.heapgrowthlimit", "288m");
+        SetProperty("dalvik.vm.heapsize", "768m");
+        SetProperty("dalvik.vm.heaptargetutilization", "0.75");
+        SetProperty("dalvik.vm.heapminfree", "512k");
+        SetProperty("dalvik.vm.heapmaxfree", "8m");
     }
 }
 
@@ -148,12 +148,12 @@ static void num_sims(void) {
 
     dualsim = android::base::GetProperty("ro.boot.dualsim", "");
 
-    property_set("ro.hw.dualsim", dualsim.c_str());
+    SetProperty("ro.hw.dualsim", dualsim.c_str());
 
     if (dualsim == "true") {
-        property_set("persist.radio.multisim.config", "dsds");
-        property_set("ro.telephony.ril.config", "simactivation");
+        SetProperty("persist.radio.multisim.config", "dsds");
+        SetProperty("ro.telephony.ril.config", "simactivation");
     } else {
-        property_set("persist.radio.multisim.config", "");
+        SetProperty("persist.radio.multisim.config", "");
     }
 }
