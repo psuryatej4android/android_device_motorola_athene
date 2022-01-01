@@ -15,7 +15,8 @@
         android:allowBackup="true"
         android:label="@string/moto_actions_title"
         android:icon="@mipmap/ic_launcher"
-        android:persistent="true">
+        android:persistent="true"
+        tools:replace="android:appComponentFactory">
 
         <receiver android:name="com.moto.actions.BootCompletedReceiver">
             <intent-filter>
