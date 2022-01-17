@@ -81,9 +81,34 @@ PRODUCT_PACKAGES += \
     libtinycompress \
     libtinyxml
 
+# Atrace
+PRODUCT_PACKAGES += \
+    android.hardware.atrace@1.0-service
+
 # Audio
 PRODUCT_PACKAGES += \
-    audio.primary.msm8952
+    android.hardware.audio@6.0-impl \
+    android.hardware.audio.effect@6.0-impl \
+    android.hardware.audio.service \
+    android.hardware.bluetooth.audio@2.0-impl \
+    audioadsprpcd \
+    audio.a2dp.default \
+    audio.bluetooth.default \
+    audio.primary.msm8952 \
+    audio.r_submix.default \
+    audio.usb.default \
+    libaudio-resampler \
+    libaudioroute \
+    libhdmiedid \
+    libhfp \
+    libqcomvisualizer \
+    libqcomvoiceprocessing \
+    libsndmonitor \
+    libvolumelistener \
+    tinymix \
+    libtinycompress \
+    libtinycompress.vendor \
+    libgui_vendor
 
 PRODUCT_COPY_FILES +=  \
     $(LOCAL_PATH)/configs/audio/audio_effects.xml:system/vendor/etc/audio_effects.xml \
