@@ -3,6 +3,9 @@ PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
     android.hidl.manager@1.0 \
     android.hidl.manager@1.0-java
+    android.hidl.base@1.0_system \
+    libhidltransport \
+    libhwbinder
 
 # Audio
 #PRODUCT_PACKAGES += \
@@ -98,3 +101,8 @@ PRODUCT_PACKAGES += \
 # WiFi
 PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service
+
+# Dependencies
+PRODUCT_PACKAGES += \
+    libavservices_minijail.vendor \
+    libhwbinder.vendor
