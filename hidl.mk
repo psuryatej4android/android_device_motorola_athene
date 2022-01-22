@@ -5,14 +5,14 @@ PRODUCT_PACKAGES += \
     android.hidl.manager@1.0-java
 
 # Audio
-PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio@2.0-service \
-    android.hardware.audio.effect@2.0-impl \
-    android.hardware.audio.effect@2.0-service \
-    android.hardware.soundtrigger@2.0-impl \
-    android.hardware.soundtrigger@2.0-service \
-    android.hardware.broadcastradio@1.0-impl
+#PRODUCT_PACKAGES += \
+#    android.hardware.audio@2.0-impl \
+#    android.hardware.audio@2.0-service \
+#    android.hardware.audio.effect@2.0-impl \
+#    android.hardware.audio.effect@2.0-service \
+#    android.hardware.soundtrigger@2.0-impl \
+#    android.hardware.soundtrigger@2.0-service \
+#    android.hardware.broadcastradio@1.0-impl
 
 # Camera
 PRODUCT_PACKAGES += \
